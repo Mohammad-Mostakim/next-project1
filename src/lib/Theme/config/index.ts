@@ -1,16 +1,16 @@
-import { Rethink_Sans, Roboto, Romanesco } from "next/font/google";
+import { Roboto, Open_Sans } from "next/font/google";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
 });
- const rithika = Rethink_Sans({
+
+const openSans = Open_Sans({
   weight: ['400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
 });
-
 
 // Define an interface for the color configuration
 interface ColorModeSettings {
