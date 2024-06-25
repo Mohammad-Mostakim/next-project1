@@ -1,6 +1,3 @@
-import { Theme } from "@mui/material";
-
-
 
 export default function Avatar(theme:any):any {
   return{

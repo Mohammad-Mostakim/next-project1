@@ -3,7 +3,7 @@ import { TypographyVariantsOptions } from "@mui/material/styles";
 import { ThemeConfigProps } from "../../config";
 
 export default function CustomTypography(themeConfig: ThemeConfigProps):TypographyVariantsOptions {
-    const { fontFamily } = themeConfig;
+    const { fontFamily,navbarHeight } = themeConfig;
 
     return {
         fontFamily: fontFamily,
@@ -72,6 +72,6 @@ export default function CustomTypography(themeConfig: ThemeConfigProps):Typograp
             fontSize: "1.5rem",
             fontWeight: "600",
             lineHeight: "2rem"
-          }
+          },
     };
 }

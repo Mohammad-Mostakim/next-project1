@@ -11,8 +11,8 @@ const Navmenu = {
   id: "navmenu",
   tag: "navmenu",
   menu: [
-    Blog,
     Services,
+    Blog,
     Pricing,
     Contact
   ],

@@ -39,7 +39,7 @@ export interface ThemeConfigProps {
 // Define the ThemeConfig object with the ThemeConfigProps type
 const ThemeConfig: ThemeConfigProps = {
   mode: "light",
-  fontFamily: rithika.style.fontFamily,
+  fontFamily: roboto.style.fontFamily,
   borderRadius: 12,
   drawerWidth: 260,
   closeDrawerWidth: 80,

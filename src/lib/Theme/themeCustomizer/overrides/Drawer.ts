@@ -1,21 +1,69 @@
+import { useAppSelector } from "@/lib/Redux/ReduxStore/hooks";
+import { useMediaQuery, useTheme, Theme } from "@mui/material";
+import { ThemeConfigProps } from "../../config";
+import { CSSObject } from '@emotion/react';
 
+// ==============================|| OVERRIDES - DRAWER ||============================== //
 
-// ==============================|| OVERRIDES - BUTTON ||============================== //
+const bigDevice = (theme: Theme, themeConfig: ThemeConfigProps, drawerOpen: boolean): CSSObject => ({
+  overflowX: "hidden",
+  flexShrink: 0,
+  whiteSpace: "nowrap",
+  boxSizing: "border-box",
+  width: drawerOpen ? themeConfig.drawerWidth : themeConfig.closeDrawerWidth,
+  transition: theme.transitions.create("width", {
+    easing: theme.transitions.easing.sharp,
+    duration: drawerOpen ? theme.transitions.duration.enteringScreen + 20 : theme.transitions.duration.leavingScreen + 20,
+  }),
+});
 
-export default function Drawer(theme:any):any {
+const smallDevice = (themeConfig: ThemeConfigProps): CSSObject => ({
+  boxSizing: "border-box",
+  width: themeConfig.drawerWidth,
+});
+
+interface CustomTheme {
+  palette: {
+    customBg: {
+      drawer: string;
+    };
+  };
+}
+
+export default function Drawer(customTheme: CustomTheme) {
+  const theme = useTheme();
+  const { drawerOpen, themeConfig } = useAppSelector((state: any) => state.theme);
+  const upMd: boolean = useMediaQuery(theme.breakpoints.up('md'));
+
   return {
     MuiDrawer: {
       styleOverrides: {
-        docked:{
-          backgroundColor: theme.palette.customBg.drawer,
-          boxShadow:theme.shadows?.[1]
+        root: {
+          overflowX: "hidden",
+          whiteSpace: "nowrap",
+          ...(upMd && {
+            overflowX: "hidden",
+            width: drawerOpen ? themeConfig.drawerWidth : themeConfig.closeDrawerWidth,
+            flexShrink: 0,
+            whiteSpace: "nowrap",
+            boxSizing: "border-box",
+            "& .MuiDrawer-paper": bigDevice(theme, themeConfig, drawerOpen),
+          }),
+          ...(!upMd && {
+            display: { xs: "block", lg: "none" },
+            "& .MuiDrawer-paper": smallDevice(themeConfig),
+          }),
+        },
+        docked: {
+          backgroundColor: customTheme.palette.customBg.drawer,
+          boxShadow: theme.shadows[1],
         },
         paper: {
-          overflowX:"hidden",
+          overflowX: "hidden",
           color: theme.palette.text.primary,
-          boxShadow: theme.shadows?.[1],
-          backgroundColor: theme.palette.customBg.drawer,
-          border:"none",
+          boxShadow: theme.shadows[1],
+          backgroundColor: customTheme.palette.customBg.drawer,
+          border: "none",
         },
       },
     },

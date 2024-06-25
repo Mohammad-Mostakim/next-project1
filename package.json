@@ -23,6 +23,7 @@
     "axios": "^1.7.2",
     "formik": "^2.4.6",
     "framer-motion": "^11.2.11",
+    "lodash": "^4.17.21",
     "material-ui-popup-state": "^5.1.2",
     "mongoose": "^8.4.3",
     "next": "14.2.4",
@@ -36,6 +37,7 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

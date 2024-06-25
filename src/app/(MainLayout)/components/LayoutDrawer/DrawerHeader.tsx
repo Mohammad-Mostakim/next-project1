@@ -31,21 +31,18 @@ const DrawerHeaderStyled = styled(Box, {
   boxShadow: theme?.shadows[1],
 }));
 
-interface DrawerHeaderProps {
-  openDrawer: boolean ;
-}
 
-const DrawerHeader = ({ openDrawer=false}: DrawerHeaderProps) => {
-  const { themeConfig } = useAppSelector((state) => state.theme);
+const DrawerHeader = () => {
+  const { themeConfig,drawerOpen } = useAppSelector((state) => state.theme);
   const theme = useAppTheme();
   const matchUpMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <DrawerHeaderStyled
       theme={theme}
-      open={openDrawer}
+      open={drawerOpen}
       themeconfig={themeConfig}
     >
-      {matchUpMd && !openDrawer ? (
+      {matchUpMd && !drawerOpen ? (
         <DrawerToggler />
       ) : (
         <React.Fragment>

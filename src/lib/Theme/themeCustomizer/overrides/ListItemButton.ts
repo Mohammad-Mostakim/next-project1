@@ -9,7 +9,7 @@ export default function listItemButton(theme:any):any {
     MuiListItemButton: {
       styleOverrides: {
         root: {
-          backgroundColor: theme.palette.customBg.listitem,
+          // backgroundColor: theme.palette.customBg.listitem,
           color:theme.palette.text.primary,
           "&:hover": {
             color: theme.palette.buttonAction.hover,

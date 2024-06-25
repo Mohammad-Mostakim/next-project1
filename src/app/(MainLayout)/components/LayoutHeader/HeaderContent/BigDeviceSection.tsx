@@ -2,7 +2,7 @@
 
 /** @format */
 import React from 'react';
-import { List, ListItem, MenuItem, MenuList } from '@mui/material';
+import { Box, List, ListItem, MenuItem, MenuList } from '@mui/material';
 import { useAppSelector } from '@/lib/Redux/ReduxStore/hooks';
 import { NavbarMenuRender } from '../../MenuRendering';
 import ModeToggler from '@/@core/toolkit/ModeToggler';
@@ -19,12 +19,11 @@ const BigDeviceSection: React.FC = () => {
   const {user} = useAppSelector((state) => state.auth);
 
   return (
-    <MenuList sx={{ display: 'flex' }}>
-      <ListItem>
+    <MenuList sx={{ display: 'flex'}}>
+      <ListItem >
         <NavbarMenuRender />
       </ListItem>
-      <ListItem
-      >
+      <ListItem >
         <List sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <MenuItem disableRipple>
             <ModeToggler />
@@ -37,7 +36,7 @@ const BigDeviceSection: React.FC = () => {
           </MenuItem>
         </List>
       </ListItem>
-      <ListItem>
+      <ListItem >
         {user && user?.role ? (
           <Profile />
         ) : (
@@ -45,6 +44,7 @@ const BigDeviceSection: React.FC = () => {
         )}
       </ListItem>
     </MenuList>
+
   );
 };
 

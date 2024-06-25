@@ -24,16 +24,6 @@ const ThemeCustomizer = (customValues: ThemeConfigProps): CustomTheme => {
         const mergeTypography = deepmerge(defaultTheme.typography, CustomTypography(custom_values));
 
         return {
-            breakpoints: {
-                values: {
-                    xs: 0,
-                    sm: 576,
-                    xmd: 800,
-                    md: 1024,
-                    lg: 1266,
-                    xl: 1536,
-                },
-            },
             palette:{... mergePalette},
             spacing: (factor: number): string => `${factor * 0.25}rem`,
             shape: {
