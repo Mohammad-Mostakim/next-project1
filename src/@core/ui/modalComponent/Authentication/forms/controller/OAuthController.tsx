@@ -2,11 +2,11 @@
 // material-ui
 import { useMediaQuery, Button, Stack } from "@mui/material";
 
-// assets
-import Image from "next/image";
 // project import
 import AnimationButton from "@core/toolkit/AnimationButton";
 import { useAppTheme } from "@/lib/Theme/hooks";
+import { BsGoogle, BsTwitterX } from "react-icons/bs";
+import { FaFacebook } from "react-icons/fa";
 
 // ==============================|| FIREBASE - SOCIAL BUTTON ||============================== //
 
@@ -39,7 +39,7 @@ const OAuthController = () => {
           variant="outlined"
           color="secondary"
           fullWidth={!matchDownSM}
-          startIcon={<Image src="/assets/icon/google.svg" alt="Google" />}
+          startIcon={<BsGoogle/>}
           onClick={(e) => handleOAuthClick(e, "google")}
         >
           {!matchDownSM && "Google"}
@@ -48,7 +48,7 @@ const OAuthController = () => {
           variant="outlined"
           color="secondary"
           fullWidth={!matchDownSM}
-          startIcon={<Image src="/assets/icon/twitter.svg" alt="Twitter" />}
+          startIcon={<BsTwitterX/>}
           onClick={(e) => handleOAuthClick(e, "twitter")}
           sx={{ my: ".1rem" }}
         >
@@ -58,7 +58,7 @@ const OAuthController = () => {
           variant="outlined"
           color="secondary"
           fullWidth={!matchDownSM}
-          startIcon={<Image src="/assets/icon/facebook.svg" alt="Facebook" />}
+          startIcon={<FaFacebook/>}
           onClick={(e) => handleOAuthClick(e, "facebook")}
         >
           {!matchDownSM && "Facebook"}

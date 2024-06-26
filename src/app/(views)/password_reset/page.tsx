@@ -3,8 +3,9 @@ import LoginModal from "@/@core/toolkit/LoginModal";
 import FormModal from "@/@core/ui/ui-toolkit/modal/FormModal";
 import { setAuthModalType } from "@/lib/Redux/AuthReduxtToolkit/AuthSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/Redux/ReduxStore/hooks";
-import { useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+
 interface Feedback {
   success: boolean;
   message: string;
@@ -16,10 +17,7 @@ const PasswordResetPage = () => {
   const [openLoginModal, setOpenLoginModal] = useState<boolean>(false);
   const [countdown, setCountdown] = useState<number>(7); // Initial countdown value
   const dispatch = useAppDispatch();
-  const urlParams = useSearchParams();
-  // Parse query parameters from the URL
-  const token = urlParams.getAll('token')[0];
-  const email = urlParams.getAll('email')[0];
+  const { token, email } = useParams();
 
   useEffect(() => {
     if (feedback && feedback?.success === true) {
@@ -45,14 +43,16 @@ const PasswordResetPage = () => {
   const initialValues = {
     newPassword: "",
     confirmPassword: "",
-    token: token,
-    email: email,
+    token: token as string,
+    email: email as string,
   };
+
   if (openLoginModal) {
     return (
       <LoginModal />
     )
   }
+
   return (
     <React.Fragment>
       <FormModal
