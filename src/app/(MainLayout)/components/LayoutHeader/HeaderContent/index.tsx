@@ -11,9 +11,9 @@ import BigDeviceSection from "./BigDeviceSection";
 // ==============================|| HEADER - CONTENT ||============================== //
 const HeaderContent: React.FC = () => {
   const theme=useAppTheme()
-  const UnderMdDevice = useMediaQuery( theme.breakpoints.down("md"));
+  const downLg = useMediaQuery( theme.breakpoints.down("lg"));
 
-  if (UnderMdDevice) {
+  if (downLg) {
     return <MobileSection />;
   }
   return <BigDeviceSection />;

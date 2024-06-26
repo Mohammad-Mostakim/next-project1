@@ -19,23 +19,21 @@ const DRAWER: React.FC<{ window?: () => Window }> = ({ window }) => {
   const theme = useAppTheme();
   const { drawerOpen } = useAppSelector((state) => state.theme);
   const dispatch = useAppDispatch();
-  const deviceUpMd = useMediaQuery(theme.breakpoints.up("md"));
-  const deviceUpLg = useMediaQuery(theme.breakpoints.up("lg"));
-
+  const downXl = useMediaQuery(theme.breakpoints.down("xl"));
   // responsive drawer container
   const container = window !== undefined ? () => window().document.body : undefined;
 
   useEffect(() => {
-    if (deviceUpLg) dispatch(setDrawerOpen());
-  }, [dispatch, deviceUpLg]);
+    if (!downXl) dispatch(setDrawerOpen());
+  }, [dispatch, downXl]);
 
   return (
     <aside>
       <Drawer
-        variant={deviceUpMd ? "permanent" : "temporary"}
+        variant={downXl ? "temporary" : "permanent"}
         container={container}
         open={drawerOpen || false}
-        ModalProps={{ keepMounted: deviceUpMd ? false : true }}
+        ModalProps={{ keepMounted: downXl ? true : false }}
       >
         <DrawerHeader />
         <DrawerContent />

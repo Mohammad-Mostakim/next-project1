@@ -1,10 +1,10 @@
 "use client"
-import LoginModal from "@/@core/toolkit/LoginModal";
-import FormModal from "@/@core/ui/ui-toolkit/modal/FormModal";
-import { setAuthModalType } from "@/lib/Redux/AuthReduxtToolkit/AuthSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/Redux/ReduxStore/hooks";
+import dynamic from "next/dynamic";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+const LoginModal = dynamic(() => import("@core/toolkit/LoginModal"), { ssr: false });
+const FormModal = dynamic(() => import("@core/ui/ui-toolkit/modal/FormModal"), { ssr: false });
 
 interface Feedback {
   success: boolean;

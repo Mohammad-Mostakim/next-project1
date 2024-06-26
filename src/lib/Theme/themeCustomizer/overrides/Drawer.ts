@@ -33,7 +33,7 @@ interface CustomTheme {
 export default function Drawer(customTheme: CustomTheme) {
   const theme = useTheme();
   const { drawerOpen, themeConfig } = useAppSelector((state: any) => state.theme);
-  const upMd: boolean = useMediaQuery(theme.breakpoints.up('md'));
+  const upLg: boolean = useMediaQuery(theme.breakpoints.up('lg'));
 
   return {
     MuiDrawer: {
@@ -41,7 +41,7 @@ export default function Drawer(customTheme: CustomTheme) {
         root: {
           overflowX: "hidden",
           whiteSpace: "nowrap",
-          ...(upMd && {
+          ...(upLg && {
             overflowX: "hidden",
             width: drawerOpen ? themeConfig.drawerWidth : themeConfig.closeDrawerWidth,
             flexShrink: 0,
@@ -49,7 +49,7 @@ export default function Drawer(customTheme: CustomTheme) {
             boxSizing: "border-box",
             "& .MuiDrawer-paper": bigDevice(theme, themeConfig, drawerOpen),
           }),
-          ...(!upMd && {
+          ...(!upLg && {
             display: { xs: "block", lg: "none" },
             "& .MuiDrawer-paper": smallDevice(themeConfig),
           }),

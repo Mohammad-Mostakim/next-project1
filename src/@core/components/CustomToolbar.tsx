@@ -17,7 +17,7 @@ type CustomToolbarProps = {
 export const CustomToolbar: React.FC<CustomToolbarProps> = ({ children }) => {
   const theme = useTheme()
   const { drawerOpen } = useAppSelector(state => state.theme);
-  const deviceDownMd = useMediaQuery(theme.breakpoints.down("md"));
+  const downXl = useMediaQuery(theme.breakpoints.down("xl"));
 
   const style = {
     display: "flex",
@@ -35,7 +35,7 @@ export const CustomToolbar: React.FC<CustomToolbarProps> = ({ children }) => {
           margin: 2,
         }}
       >
-        {deviceDownMd && <DrawerToggler />}
+        {downXl && <DrawerToggler />}
         <Logo />
       </Box>}
 
