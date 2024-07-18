@@ -14,8 +14,8 @@ import { useAppTheme } from "@/lib/Theme/hooks";
 import { useAppDispatch, useAppSelector } from "@/lib/Redux/ReduxStore/hooks";
 // project imports
 import { setAuthModalType } from "@/lib/Redux/AuthReduxtToolkit/AuthSlice";
-import AuthCardWrapper from "./utils/AuthCardWarper";
-import AuthWrapper from "./utils/AuthWarper";
+import AuthCardWrapper from "./style/AuthCardWarper";
+import AuthWrapper from "./style/AuthWarper";
 import RegisterForm from "./forms/RegisterForm";
 
 // assets

@@ -14,7 +14,7 @@ const icons = {
 const Services = {
   type: "single",
   id: "services",
-  title: "Services",
+  title: "ServiceMenu",
   url: "/services",
   icon: icons.RiCustomerService2Line,
   breadcrumbs: true,

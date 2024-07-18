@@ -10,7 +10,7 @@ const options: connectedOptions = {
 
 // connecting to database
 const connectToDB = async () => {
-    const connectionUrl: string = process.env.DB_URI as string;
+    const connectionUrl: string = process.env.MONGODB_URI as string;
     if (mongoose.connection.readyState === 1) {
         // If already connected, don't connect again
         console.log('Already connected to MongoDB');

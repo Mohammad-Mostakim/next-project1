@@ -15,8 +15,8 @@ import { useAppTheme } from "@/lib/Theme/hooks";
 
 // project import 
 import { setAuthModalType } from "@/lib/Redux/AuthReduxtToolkit/AuthSlice";
-import AuthWrapper from "./utils/AuthWarper";
-import AuthCardWrapper from "./utils/AuthCardWarper";
+import AuthWrapper from "./style/AuthWarper";
+import AuthCardWrapper from "./style/AuthCardWarper";
 import Logo from "@core/ui/ui-toolkit/logo";
 import ForgetForm from "./forms/ForgetForm";
 import CircularLoader from "@core/ui/ui-toolkit/loader/CircularLoader";

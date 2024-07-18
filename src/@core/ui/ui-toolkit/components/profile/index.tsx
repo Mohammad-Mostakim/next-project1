@@ -125,9 +125,9 @@ const Profile: React.FC = () => {
             src={userInfo?.photo}
             sx={{ width: 32, height: 32, p: 0.3 }}
           />
-          {matchUpSm && (
-            <Typography variant="body1">{userInfo?.fname || "No Name"}</Typography>
-          )}
+          {/* {matchUpSm && (
+            <Typography variant="body1">{userInfo?.fname[0] || "No Name"}</Typography>
+          )} */}
         </Stack>
       </ButtonBase>
       <Popper

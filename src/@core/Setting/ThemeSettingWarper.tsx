@@ -11,6 +11,7 @@ import {
 
 // Make sure the `AppRouterCacheProvider` is imported correctly
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { MainLayout } from '@core/components/MainLayout';
 
 export const ThemeSettingWrapper = ({ children }: { children: React.ReactNode }) => {
   // Extracting theme configuration from Redux store
@@ -18,19 +19,16 @@ export const ThemeSettingWrapper = ({ children }: { children: React.ReactNode })
   // Customizing theme based on the configuration
   const customTheme = ThemeCustomizer(themeConfig);
 
-  // useEffect(()=>{
-  //   const fontfamily=customTheme.typography.fontFamily;
-  //   if(fontfamily)document.body.style.fontFamily=fontfamily
-  // },[customTheme])
-
   return (
     <StyledEngineProvider injectFirst>
       <AppRouterCacheProvider options={{ enableCssLayer: false, key: 'css' }}>
         <ErrorBoundary>
-        <ThemeProvider theme={customTheme} >
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+          <ThemeProvider theme={customTheme} >
+            <CssBaseline />
+            <MainLayout>
+              {children}
+            </MainLayout>
+          </ThemeProvider>
         </ErrorBoundary>
       </AppRouterCacheProvider>
     </StyledEngineProvider>
